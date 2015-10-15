@@ -1,3 +1,28 @@
+## 奇怪的Bug
+
+1. CSS文档里面使用注释（中文注释？）会影响到HTML文档中类选择器的正常加载。
+
+2. overflow:hidden 不仅可以隐藏超出内容，还可以清除内部元素浮动造成的效果。
+
+3. 需要把 background-attachment 属性设置为 "fixed"，才能保证该属性在 Firefox (Gecko内核)和 Opera（Presto内核） 中正常工作。
+
+4. 改变`<a>`链接四种状态的CSS样式需遵循以下顺序：link visited hover active。否则可能出错。
+	
+	```
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	```
+执行
+	```
+	document.getElementByTagName("ul").childNodes
+	```
+
+	得到的子元素`<li>`个数为 7 而不是 3，因为每个`<ul>`和`<li>`元素后的换行可能会被浏览器解释为一个空子元素。
+
+
 ##IE Bug汇总
 1. IE6怪异解析之`padding`与`border`算入宽高。
 
