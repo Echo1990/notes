@@ -155,7 +155,7 @@
 ```
 IE 8 以下不 work ...
 
-## css3 中的 `display: flex`
+## css3 中的 Flex 布局
 
 将父级容器设置为 Flex 容器，并规定子项目的排列方式。详细参见 [Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool)
 
