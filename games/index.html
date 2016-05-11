@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <title>bingo,bingo</title>
+  <style>
+    *{
+      margin: 0; 
+      padding: 0;
+    }
+    .box{
+    	padding: 12px 0;
+    }
+    div{
+    	background: #eee;
+    }
+    .col1{
+    	text-align: center;
+    	margin: 12px auto;
+    	background: #dd2727;
+    	color:#fff;
+    	height: 100px;
+    	line-height: 100px;
+    }
+    .col2{
+    	padding: 12px;
+    	width: 990px;
+    	margin: 0 auto;
+    	background-color: #fff;
+    	border-radius: 5px;
+    	box-shadow: 1px 1px 1px #ccc;
+    }
+    .col3{
+    	padding: 12px;
+    	width: 990px;
+    	margin:0 auto;
+    	background-color: #fff;
+    	border-radius: 5px;
+    	box-shadow: 1px 1px 1px #ccc;
+    }
+    .animal{
+    	background-color: #fff;
+    	border-radius: 5px;
+    	text-align: center;
+    }
+    .col3 .animal img{
+    	width: 200px;
+    	height: 150px;
+    }
+    .bt{
+    	width: 100px;
+    	padding: 9px;
+    	margin:12px auto;
+    	background-color: blue;
+    	border-radius: 3px;
+    	box-shadow: 1px 1px 1px #ccc;
+    	color:#fff;
+    	text-align: center;
+    }
+    b{
+    	font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="col1"><h1>游戏环节：天猫月趴 —— 我最6！</h1></div>
+  <div class="col2" id="col1"><br/><p><h2>规则描述：</h2> <br/>
+  一、一种颜色对应一种动物：<b>白色->兔子  黑色->猩猩 红色->螃蟹 绿色->乌龟 蓝色->大象(形象!好记!有木有！！！)</b>;<br /> <br/>
+  二、颜色和动物对应关系正确就说<b>Bingo</b>，如果不正确就说<b>图中颜色对应的动物名！！！</b>; <br/><br/>
+  三、每位每次需要连续说出<b>两张</b>图中的动物名称，注意要跟上我们帅哥主持人的<b>节拍</b>哦～ <br/><br/></p>
+  四、游戏最终解释权归知性美丽又大方的HR姐姐所有。
+  <br /><br />
+  <div class="bt" id = "hideBt">隐藏</div></div>
+ 
+ <br />
+  <div class="col3"><br/><h2>说出动物名:</h2><br/>
+  	<span>1 ! 2 ! 3 ! 4 ! (注！意！节！奏！)<br />
+    (第一位同学：)Bingo! Bingo! 天猫月趴我最6，(点击展示)这是什么呢？ 兔子！大象！<br />
+    (第二位同学：)Bingo! Bingo! 天猫月趴我最6，(点击展示)这是什么呢?  ** ！ ** ！</span> <br /><br />
+  	... ...
+  	<div class="animal">
+  		<img id = "img1" src = "./animals/elephant5.png"/>
+  		<img id = "img2" src = "./animals/crab3.png"/>
+  	</div><div class="bt" id="bt">换一换</div>
+  </div>
+  
+</div>
+<script>
+	var img1 = document.getElementById('img1');
+	var img2 = document.getElementById('img2');
+
+	var bt = document.getElementById('bt');
+	var hBt = document.getElementById('hideBt');
+
+	var rules = document.getElementById('col1');
+
+	var animals =['crab','turtle','elephant','gorilla','rabbit'];
+
+	hBt.addEventListener('click',function(e){
+		rules.style.display = "none";
+	});
+
+	bt.addEventListener('click',function(e) {
+		// body...
+		var n1 = Random(),
+        n2 = Random(),
+		    m1 = Random(),
+		    m2 = Random();
+    console.log(n1,n2,m1,m2);
+		img1.setAttribute('src','./animals/'+animals[n1]+(m1+1)+'.png');
+		img2.setAttribute('src','./animals/'+animals[n2]+(m2+1)+'.png');
+	});
+
+  function Random(){ //伪随机产生[0,4]
+    var n = Math.random()*4;
+    n = Math.round(n);
+    return n;
+  }
+</script>
+</body>
+</html>
