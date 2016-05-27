@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>MVC Demo</title>
+    <script src="./module.js"></script>
+  </head>
+  <body>
+		<span ele-model="hour"></span> : 
+		<span ele-model="minute"></span> : 
+		<span ele-model="second"></span>
+
+		<script>
+		// controller 控制 model, model 通过 set() 方法更新 view
+		new eleController(function (models) {
+		  function setTime() {
+        var date = new Date();
+        models.hour.set(date.getHours());
+        models.minute.set(date.getMinutes());
+	      models.second.set(date.getSeconds());
+		  }
+		  setTime();
+		  setInterval(setTime, 1000);
+		});
+		</script>
+  </body>
+</html>
