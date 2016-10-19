@@ -112,7 +112,7 @@
 				// 通过原型传递解决问题，把 jQuery 的原型传递给jQuery.prototype.init.prototype
 				// jQuery.fn.init.prototype = jQuery.fn;
 				// 所以通过这个方法生成的实例 this 所指向的 仍然是 jQuery.fn(jQuery.prototype)，所以能正确访问 jQuery 类原型上的属性与方法
-        console.log(new jQuery.fn.init(selector, context, rootjQuery));
+        //console.log(new jQuery.fn.init(selector, context, rootjQuery));
         return new jQuery.fn.init(selector, context, rootjQuery);
 			},
 
@@ -489,6 +489,7 @@
 			push: core_push,
 			sort: [].sort,
 			splice: [].splice
+
 		};
 
 		// Give the init function the jQuery prototype for later instantiation
