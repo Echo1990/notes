@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<!-- this starts off as http://example.com/line?x=5 -->
+<html>
+<head>
+<title>Promise</title>
+</head>
+<body>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script>
+
+function doing(res){
+  console.log('result:',res)
+}
+
+$.ajax({
+  type:'GET',
+  url:'https://ald.taobao.com/recommend.htm',
+  data:{appId:'03597'},
+  dataType:'jsonp',
+  success:function(json){doing(json)},
+  error:function(err){console.log(err)}
+})
+
+// var promise = new Promise(function(resolve, reject) {  
+//   // 事务触发
+//   $.ajax({
+//     type:'GET',
+//     url:'https://ald.taobao.com/recommend.htm',
+//     data:{appId:'03597'},
+//     dataType:'jsonp',
+//     success:function(json){resolve(json)},
+//     error:function(err){reject(err)}
+//   })
+// });
+
+// promise.then(function(res){console.log(res)});
+
+</script>
+</body>
+</html>
